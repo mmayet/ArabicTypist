@@ -16,6 +16,11 @@ document.getElementById("copyButton").addEventListener("click", function() {
     copyToClipboard(document.getElementById("baID"));
 });
 
+function jump(h) {
+    var top = document.getElementById(h).offsetTop; //Getting Y of target element
+    window.scrollTo(0, top);                        //Go there directly or some transition
+}
+
 function insertAtCursor(crt, sValue) {
 	if(keyboard) {
 	    if (crt.selectionStart || crt.selectionStart == '0') {
@@ -74,6 +79,7 @@ function copyToClipboard(elem) {
 }
 
 $('#textarea1').trigger('autoresize');
+$('#message-box').trigger('autoresize');
 
 $('#baID').on('keydown', function(e) {
     $('#textarea1').trigger('autoresize');
@@ -103,6 +109,7 @@ $('#baID').on('keydown', function(e) {
     else if ( (evt.ctrlKey || evt.metaKey) && evt.altKey && evt.keyCode == 67 /*'C' for Companion (Rḍ)*/ )  {   insertAtCursor(crt, "(Rḍ)");} 
     else if ( (evt.ctrlKey || evt.metaKey) && evt.altKey && evt.keyCode == 71 /*'g' for God ﷻ*/ )           {   insertAtCursor(crt, "ﷻ");   } 
     else if ( (evt.ctrlKey || evt.metaKey) && evt.altKey && evt.keyCode == 80 /*'p' for Prophet (ع)*/ )     {   insertAtCursor(crt, "(ع)"); } 
-    else if ( (evt.ctrlKey || evt.metaKey) && evt.altKey && evt.keyCode == 82 /*'r' for Rasūl ﷺ*/ )         {   insertAtCursor(crt, "ﷺ");   }
     else if ( (evt.ctrlKey || evt.metaKey) && evt.altKey && evt.shiftKey && evt.keyCode == 82 /*'R'*/ )     {   insertAtCursor(crt, "💚");   }
+    else if ( (evt.ctrlKey || evt.metaKey) && evt.altKey && evt.keyCode == 82 /*'r' for Rasūl ﷺ*/ )         {   insertAtCursor(crt, "ﷺ");   }
+    
 });
